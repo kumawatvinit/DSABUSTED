@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "regex": "cpp",
+        "iosfwd": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp",
+        "unordered_map": "cpp",
+        "functional": "c",
+        "tuple": "c"
+    }
+}
