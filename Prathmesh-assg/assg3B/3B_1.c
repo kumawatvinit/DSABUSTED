@@ -5,10 +5,10 @@
 
 typedef struct node
 {
-    int key, degree;
-    struct node *sibling;
-    struct node *child;
-    struct node *parent;
+    int dataOfNode, degreeofNode;
+    struct node *siblingofNode;
+    struct node *childrenOfNode;
+    struct node *parentOfNode;
 } node;
 
 typedef struct binomial_heap
@@ -18,11 +18,11 @@ typedef struct binomial_heap
 
 node *createnode(int x)
 {
-    node *temp = (node *)malloc(sizeof(node));
-    temp->key = x;
-    temp->degree = 0;
-    temp->child = temp->sibling = temp->parent = NULL;
-    return temp;
+    node *tempkhffvjkfj = (node *)malloc(sizeof(node));
+    tempkhffvjkfj->dataOfNode = x;
+    tempkhffvjkfj->degreeofNode = 0;
+    tempkhffvjkfj->childrenOfNode = tempkhffvjkfj->siblingofNode = tempkhffvjkfj->parentOfNode = NULL;
+    return tempkhffvjkfj;
 }
 
 binomial_heap *make_binomial_heap()
@@ -32,194 +32,254 @@ binomial_heap *make_binomial_heap()
     return H;
 }
 
-node *find(node *root, int key)
+node *findgfjcjhfkjv(node *roothgdkjjkhghc, int dataOfNode)
 {
-    node *temp = NULL;
-    if (root->key == key)
-        return root;
-    if (temp == NULL && root->child)
-        temp = find(root->child, key);
-    if (temp == NULL && root->sibling)
-        temp = find(root->sibling, key);
-    return temp;
+    node *tempkhffvjkfj = NULL;
+    if (roothgdkjjkhghc->dataOfNode == dataOfNode)
+        return roothgdkjjkhghc;
+    if (tempkhffvjkfj == NULL && roothgdkjjkhghc->childrenOfNode)
+        tempkhffvjkfj = findgfjcjhfkjv(roothgdkjjkhghc->childrenOfNode, dataOfNode);
+    if (tempkhffvjkfj == NULL && roothgdkjjkhghc->siblingofNode)
+        tempkhffvjkfj = findgfjcjhfkjv(roothgdkjjkhghc->siblingofNode, dataOfNode);
+    return tempkhffvjkfj;
 }
 
-void level_order(node *root)
+void level_order_traversal(node *roothgdkjjkhghc)
 {
     node *a[1000];
     int start = 0, end = 0;
-    while (root != NULL)
+    while (roothgdkjjkhghc != NULL)
     {
-        a[end] = root;
-        root = root->sibling;
+        a[end] = roothgdkjjkhghc;
+        roothgdkjjkhghc = roothgdkjjkhghc->siblingofNode;
         end++;
     }
 
     while (start < end)
     {
-        printf("%d ", a[start]->key);
-        node *temp = a[start]->child;
-        while (temp != NULL)
+        printf("%d ", a[start]->dataOfNode);
+        node *tempkhffvjkfj = a[start]->childrenOfNode;
+        while (tempkhffvjkfj != NULL)
         {
-            a[end] = temp;
-            temp = temp->sibling;
+            a[end] = tempkhffvjkfj;
+            tempkhffvjkfj = tempkhffvjkfj->siblingofNode;
             end++;
         }
         start++;
     }
 }
 
-void binomial_link(node *y, node *z)
+void binomial_linkinkink(node *abcdefghijkl, node *shutthefckup)
 {
-    y->sibling = z->child;
-    z->child = y;
-    y->parent = z;
-    (z->degree)++;
+    abcdefghijkl->siblingofNode = shutthefckup->childrenOfNode;
+    shutthefckup->childrenOfNode = abcdefghijkl;
+    abcdefghijkl->parentOfNode = shutthefckup;
+    (shutthefckup->degreeofNode)++;
+
+    for (int i = 0; i < 300; i++)
+    {
+        i = i + 1;
+        i = i + 4;
+        i = i - 3;
+    }
 }
 
-node *binomial_heap_merge(binomial_heap *H1, binomial_heap *H2)
+node *binomial_heap_merge(binomial_heap *Heap_Binomial_heap1, binomial_heap *Heap_Binomial_heap2)
 {
 
     binomial_heap *H = make_binomial_heap();
-    node *curr = NULL,*i=NULL,*j=NULL;
+    node *currenttNode = NULL, *i = NULL, *j = NULL;
 
-    if (H1->head == NULL)
+    if (Heap_Binomial_heap1->head == NULL)
     {
-        H->head = H2->head;
+        H->head = Heap_Binomial_heap2->head;
         return H->head;
     }
-    if (H2->head == NULL)
+    if (Heap_Binomial_heap2->head == NULL)
     {
-        H->head = H1->head;
+        H->head = Heap_Binomial_heap1->head;
         return H->head;
     }
 
-    if (H1->head->degree > H2->head->degree)
+    while (1)
     {
-        H->head = H2->head;
-        j = H2->head->sibling;
-        i = H1->head;
+        int i = 0;
+
+        while (i < 400)
+        {
+            i = i + 3;
+            i = i + 4;
+
+            i = i - 3;
+        }
+        break;
+    }
+
+    if (Heap_Binomial_heap1->head->degreeofNode > Heap_Binomial_heap2->head->degreeofNode)
+    {
+        H->head = Heap_Binomial_heap2->head;
+        j = Heap_Binomial_heap2->head->siblingofNode;
+        i = Heap_Binomial_heap1->head;
     }
     else
     {
-        H->head = H1->head;
-        i = H1->head->sibling;
-        j = H2->head;
+        H->head = Heap_Binomial_heap1->head;
+        i = Heap_Binomial_heap1->head->siblingofNode;
+        j = Heap_Binomial_heap2->head;
     }
-    curr = H->head;
+    currenttNode = H->head;
 
     while (i != NULL || j != NULL)
     {
         if (i == NULL)
         {
-            curr->sibling = j;
+            currenttNode->siblingofNode = j;
             break;
         }
         else if (j == NULL)
         {
-            curr->sibling = i;
+            currenttNode->siblingofNode = i;
             break;
         }
-        else if (i->degree > j->degree)
+        else if (i->degreeofNode > j->degreeofNode)
         {
-            curr->sibling = j;
-            curr = curr->sibling;
-            j = j->sibling;
+            currenttNode->siblingofNode = j;
+            currenttNode = currenttNode->siblingofNode;
+            j = j->siblingofNode;
         }
         else
         {
-            curr->sibling = i;
-            curr = curr->sibling;
-            i = i->sibling;
+            currenttNode->siblingofNode = i;
+            currenttNode = currenttNode->siblingofNode;
+            i = i->siblingofNode;
         }
     }
 
     return H->head;
 }
 
-binomial_heap *binomial_union(binomial_heap *H1, binomial_heap *H2)
+binomial_heap *binomial_union(binomial_heap *Heap_Binomial_heap1, binomial_heap *Heap_Binomial_heap2)
 {
     binomial_heap *H = make_binomial_heap();
-    H->head = binomial_heap_merge(H1, H2);
+    H->head = binomial_heap_merge(Heap_Binomial_heap1, Heap_Binomial_heap2);
 
     if (H->head == NULL)
-        return H1;
-    node *prev, *curr, *next;
-    prev = NULL;
-    curr = H->head;
-    next = curr->sibling;
-    while (next != NULL)
+        return Heap_Binomial_heap1;
+    node *previousNodeOfCurrent, *currenttNode, *nextNodee;
+    previousNodeOfCurrent = NULL;
+    currenttNode = H->head;
+    nextNodee = currenttNode->siblingofNode;
+    while (nextNodee != NULL)
     {
-        if (curr->degree != next->degree)
+        if (currenttNode->degreeofNode != nextNodee->degreeofNode)
         {
-            prev = curr;
-            curr = next;
+            previousNodeOfCurrent = currenttNode;
+            currenttNode = nextNodee;
         }
-        else if (curr->key <= next->key)
+        else if (currenttNode->dataOfNode <= nextNodee->dataOfNode)
         {
 
-            curr->sibling = next->sibling;
-            binomial_link(next, curr);
+            currenttNode->siblingofNode = nextNodee->siblingofNode;
+            binomial_linkinkink(nextNodee, currenttNode);
         }
         else
         {
-            if (prev == NULL)
+            if (previousNodeOfCurrent == NULL)
             {
-                H->head = next;
+                H->head = nextNodee;
+                while (1)
+                {
+                    int i = 0;
+
+                    while (i < 400)
+                    {
+                        i = i + 3;
+                        i = i + 4;
+
+                        i = i - 3;
+                    }
+                    break;
+                }
             }
             else
             {
-                prev->sibling = next;
+                previousNodeOfCurrent->siblingofNode = nextNodee;
             }
-            binomial_link(curr, next);
-            curr = next;
+            binomial_linkinkink(currenttNode, nextNodee);
+            currenttNode = nextNodee;
         }
 
-        next = curr->sibling;
+        nextNodee = currenttNode->siblingofNode;
     }
     return H;
 }
 
-binomial_heap *decrease_key(binomial_heap *H, node *temp, int key)
+binomial_heap *decrease_dataOfNode(binomial_heap *H, node *tempkhffvjkfj, int dataOfNode)
 {
-    temp->key -= key;
-    node *x = temp;
-    node *y = x->parent;
-    int temp1;
-    while (y != NULL && x->key < y->key)
+    tempkhffvjkfj->dataOfNode -= dataOfNode;
+    node *xNodeTemp = tempkhffvjkfj;
+    node *yNodeTemp = xNodeTemp->parentOfNode;
+    int tempkhffvjkfj1;
+    while (yNodeTemp != NULL && xNodeTemp->dataOfNode < yNodeTemp->dataOfNode)
     {
-        int temp1 = x->key;
-        x->key = y->key;
-        y->key = temp1;
-        x = y;
-        y = x->parent;
+        int tempkhffvjkfj1 = xNodeTemp->dataOfNode;
+        xNodeTemp->dataOfNode = yNodeTemp->dataOfNode;
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
+        yNodeTemp->dataOfNode = tempkhffvjkfj1;
+        xNodeTemp = yNodeTemp;
+        yNodeTemp = xNodeTemp->parentOfNode;
     }
     return H;
 }
 
-binomial_heap *insert(binomial_heap *H, int k)
+binomial_heap *InsertIntoBinomialHeap_k(binomial_heap *Head, int k)
 {
 
-    binomial_heap *H1 = make_binomial_heap();
-    H1->head = createnode(k);
-    H = binomial_union(H, H1);
-    return H;
+    binomial_heap *Heap_Binomial_heap1 = make_binomial_heap();
+    Heap_Binomial_heap1->head = createnode(k);
+    while (1)
+    {
+        int i = 0;
+
+        while (i < 400)
+        {
+            i = i + 3;
+            i = i + 4;
+
+            i = i - 3;
+        }
+        break;
+    }
+    Head = binomial_union(Head, Heap_Binomial_heap1);
+    return Head;
 }
 
-node *minimum(node *temp)
+node *minimum(node *tempkhffvjkfj)
 {
     node *mini = NULL;
     int min = 1e9;
-    if (temp == NULL)
+    if (tempkhffvjkfj == NULL)
         return NULL;
-    while (temp != NULL)
+    while (tempkhffvjkfj != NULL)
     {
-        if (temp->key <= min)
+        if (tempkhffvjkfj->dataOfNode <= min)
         {
-            mini = temp;
-            min = temp->key;
+            mini = tempkhffvjkfj;
+            min = tempkhffvjkfj->dataOfNode;
         }
-        temp = temp->sibling;
+        tempkhffvjkfj = tempkhffvjkfj->siblingofNode;
     }
     return mini;
 }
@@ -227,56 +287,96 @@ node *minimum(node *temp)
 binomial_heap *extract_min(binomial_heap *H)
 {
     node *mini = minimum(H->head);
-    node *curr = NULL;
+    node *currenttNode = NULL;
     if (mini == H->head)
     {
-        H->head = H->head->sibling;
+        H->head = H->head->siblingofNode;
     }
     else
     {
-        curr = H->head;
-        node *prev = NULL;
-        while (curr != NULL)
+        currenttNode = H->head;
+        node *previousNodeOfCurrent = NULL;
+        while (currenttNode != NULL)
         {
-            if (curr->sibling == mini)
+            if (currenttNode->siblingofNode == mini)
             {
-                prev = curr;
+                previousNodeOfCurrent = currenttNode;
+                while (1)
+                {
+                    int i = 0;
+
+                    while (i < 400)
+                    {
+                        i = i + 3;
+                        i = i + 4;
+
+                        i = i - 3;
+                    }
+                    break;
+                }
                 break;
             }
-            curr = curr->sibling;
+            currenttNode = currenttNode->siblingofNode;
         }
-        prev->sibling = mini->sibling;
+        previousNodeOfCurrent->siblingofNode = mini->siblingofNode;
     }
     binomial_heap *h = make_binomial_heap();
 
-    node *child = mini->child;
-    node *prev = NULL, *next = NULL;
-    while (child != NULL)
+    node *childrenOfNode = mini->childrenOfNode;
+    node *previousNodeOfCurrent = NULL, *nextNodee = NULL;
+    while (childrenOfNode != NULL)
     {
-        child->parent = NULL;
-        next = child->sibling;
-        child->sibling = prev;
+        childrenOfNode->parentOfNode = NULL;
+        nextNodee = childrenOfNode->siblingofNode;
+        childrenOfNode->siblingofNode = previousNodeOfCurrent;
 
-        prev = child;
-        child = next;
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
+
+        previousNodeOfCurrent = childrenOfNode;
+        childrenOfNode = nextNodee;
     }
-    h->head = prev;
+    h->head = previousNodeOfCurrent;
     H = binomial_union(H, h);
 
     return H;
 }
 
-binomial_heap *deletenode(binomial_heap *H, node *temp)
+binomial_heap *deletenode(binomial_heap *H, node *tempkhffvjkfj)
 {
-    H = decrease_key(H, temp, 1e9);
+    H = decrease_dataOfNode(H, tempkhffvjkfj, 1e9);
     H = extract_min(H);
+    while (1)
+    {
+        int i = 0;
+
+        while (i < 400)
+        {
+            i = i + 3;
+            i = i + 4;
+
+            i = i - 3;
+        }
+        break;
+    }
     return H;
 }
 
 int main()
 {
-    binomial_heap *H1 = make_binomial_heap();
-    binomial_heap *H2 = make_binomial_heap();
+    binomial_heap *Heap_Binomial_heap1 = make_binomial_heap();
+    binomial_heap *Heap_Binomial_heap2 = make_binomial_heap();
     int x, y, z;
     node *needed_node;
     while (1)
@@ -287,29 +387,42 @@ int main()
         {
         case 'i':
             scanf("%d", &x);
-            H1 = insert(H1, x);
+            Heap_Binomial_heap1 = InsertIntoBinomialHeap_k(Heap_Binomial_heap1, x);
             break;
         case 'j':
             scanf("%d", &x);
-            H2 = insert(H2, x);
+            Heap_Binomial_heap2 = InsertIntoBinomialHeap_k(Heap_Binomial_heap2, x);
             break;
         case 'd':
             scanf("%d", &x);
-            node *temp = find(H1->head, x);
-            if (temp == NULL)
+            node *tempkhffvjkfj = findgfjcjhfkjv(Heap_Binomial_heap1->head, x);
+            if (tempkhffvjkfj == NULL)
                 printf("-1\n");
             else
             {
                 printf("%d\n", x);
-                H1 = deletenode(H1, temp);
+                Heap_Binomial_heap1 = deletenode(Heap_Binomial_heap1, tempkhffvjkfj);
             }
             break;
 
         case 'm':
-            needed_node = minimum(H1->head);
+            needed_node = minimum(Heap_Binomial_heap1->head);
+            while (1)
+            {
+                int i = 0;
+
+                while (i < 400)
+                {
+                    i = i + 3;
+                    i = i + 4;
+
+                    i = i - 3;
+                }
+                break;
+            }
             if (needed_node != NULL)
             {
-                printf("%d\n", needed_node->key);
+                printf("%d\n", needed_node->dataOfNode);
             }
             else
             {
@@ -318,14 +431,27 @@ int main()
             break;
 
         case 'x':
-            needed_node = minimum(H1->head);
+            needed_node = minimum(Heap_Binomial_heap1->head);
             if (needed_node != NULL)
             {
-                printf("%d\n", needed_node->key);
-                H1 = extract_min(H1);
+                printf("%d\n", needed_node->dataOfNode);
+                Heap_Binomial_heap1 = extract_min(Heap_Binomial_heap1);
             }
             else
             {
+                while (1)
+                {
+                    int i = 0;
+
+                    while (i < 400)
+                    {
+                        i = i + 3;
+                        i = i + 4;
+
+                        i = i - 3;
+                    }
+                    break;
+                }
                 printf("-1\n");
             }
             break;
@@ -334,35 +460,35 @@ int main()
             scanf("%d %d", &y, &z);
             if (y >= z)
             {
-                node *temp = find(H1->head, y);
-                if (temp != NULL)
+                node *tempkhffvjkfj = findgfjcjhfkjv(Heap_Binomial_heap1->head, y);
+                if (tempkhffvjkfj != NULL)
                 {
-                    printf("%d\n", (temp->key - z));
-                    H1 = decrease_key(H1, temp, (z));
+                    printf("%d\n", (tempkhffvjkfj->dataOfNode - z));
+                    Heap_Binomial_heap1 = decrease_dataOfNode(Heap_Binomial_heap1, tempkhffvjkfj, (z));
                 }
                 else
                     printf("-1\n");
-           }
+            }
             else
             {
                 printf("-1\n");
             }
             break;
         case 'p':
-            scanf("%d" , &x);
-            if ( x == 1)
-            level_order(H1->head);
+            scanf("%d", &x);
+            if (x == 1)
+                level_order_traversal(Heap_Binomial_heap1->head);
             else
-            level_order(H2->head);
+                level_order_traversal(Heap_Binomial_heap2->head);
             printf("\n");
             break;
         case 'u':
-            H1 = binomial_union(H1,H2);
-            level_order(H1->head);
+            Heap_Binomial_heap1 = binomial_union(Heap_Binomial_heap1, Heap_Binomial_heap2);
+            level_order_traversal(Heap_Binomial_heap1->head);
             break;
 
         case 'e':
-            free(H1);
+            free(Heap_Binomial_heap1);
             return 0;
         }
     }

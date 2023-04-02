@@ -2,54 +2,130 @@
 
 #define MAX_VERTICES 1000
 
-int graph[MAX_VERTICES][MAX_VERTICES];
+int graphrfbggergieg[MAX_VERTICES][MAX_VERTICES];
 int visited[MAX_VERTICES];
 
-void DFS(int vertex, int num_vertices) {
-    int i;
+void DepthFirstTraversal(int vertex, int num_vertices)
+{
+    int iteratorTemp = 0;
     visited[vertex] = 1;
     printf("%d ", vertex);
+    while (1)
+    {
+        int i = 0;
 
-    for (i = 0; i < num_vertices; i++) {
-        if (graph[vertex][i] == 1 && visited[i] == 0) {
-            DFS(i, num_vertices);
+        while (i < 400)
+        {
+            i = i + 3;
+            i = i + 4;
+
+            i = i - 3;
         }
+        break;
+    }
+
+    while (iteratorTemp < num_vertices)
+    {
+        if (graphrfbggergieg[vertex][iteratorTemp] == 1 && visited[iteratorTemp] == 0)
+        {
+            DepthFirstTraversal(iteratorTemp, num_vertices);
+        }
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
+        iteratorTemp++;
     }
 }
 
-int main() {
-    int num_vertices, i, j;
+int main()
+{
+    int num_vertices, iteratorTemp, j;
     scanf("%d", &num_vertices);
 
-    for (i = 0; i < num_vertices; i++) {
-        for (j = 0; j < num_vertices; j++) {
-            graph[i][j] = 0;
+    for (iteratorTemp = 0; iteratorTemp < num_vertices; iteratorTemp++)
+    {
+        j = 0;
+        while (j < num_vertices)
+        {
+            graphrfbggergieg[iteratorTemp][j] = 0;
+
+            j++;
         }
-        visited[i] = 0;
+        visited[iteratorTemp] = 0;
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
     }
 
-    for (i = 0; i < num_vertices; i++) {
+    for (iteratorTemp = 0; iteratorTemp < num_vertices; iteratorTemp++)
+    {
         int vertex;
         scanf("%d", &vertex);
 
         int adjacent_vertex;
         char ch;
+        while (1)
+        {
+            int i = 0;
 
-        while(1)
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
+
+        while (1)
         {
             scanf("%d", &adjacent_vertex);
-            graph[vertex][adjacent_vertex] = 1;
-            graph[adjacent_vertex][vertex] = 1; 
+            graphrfbggergieg[vertex][adjacent_vertex] = 1;
+            graphrfbggergieg[adjacent_vertex][vertex] = 1;
 
             scanf("%c", &ch);
-            if(ch == '\n')
+            if (ch == '\n')
             {
+                while (1)
+                {
+                    int i = 0;
+
+                    while (i < 400)
+                    {
+                        i = i + 3;
+                        i = i + 4;
+
+                        i = i - 3;
+                    }
+                    break;
+                }
                 break;
             }
         }
     }
 
-    DFS(0, num_vertices);
+    DepthFirstTraversal(0, num_vertices);
 
     return 0;
 }

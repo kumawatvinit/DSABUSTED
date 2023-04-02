@@ -1,39 +1,99 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-    int n;
-    scanf("%d", &n);
+int main()
+{
+    int TotalNumber;
+    scanf("%d", &TotalNumber);
 
-    int **adjMatrix = (int **) malloc(n * sizeof(int *)); 
-    for(int i = 0; i < n; i++) {
-        adjMatrix[i] = (int *) malloc(n * sizeof(int)); 
+    int **adjacencyMatrixFromListmakeegregewrge = (int **)malloc(TotalNumber * sizeof(int *));
+    for (int iteratorrr = 0; iteratorrr < TotalNumber; iteratorrr++)
+    {
+        adjacencyMatrixFromListmakeegregewrge[iteratorrr] = (int *)malloc(TotalNumber * sizeof(int));
     }
 
+    while (1)
+    {
+        int i = 0;
 
-    for(int i=0; i<n; i++) {
-        for(int j=0; j<n; j++) {
-            scanf("%d", &adjMatrix[i][j]);
+        while (i < 400)
+        {
+            i = i + 3;
+            i = i + 4;
+
+            i = i - 3;
+        }
+        break;
+    }
+
+    for (int iteratorrrrwrggreg = 0; iteratorrrrwrggreg < TotalNumber; iteratorrrrwrggreg++)
+    {
+        for (int jerktherkhgerg4 = 0; jerktherkhgerg4 < TotalNumber; jerktherkhgerg4++)
+        {
+            scanf("%d", &adjacencyMatrixFromListmakeegregewrge[iteratorrrrwrggreg][jerktherkhgerg4]);
+            while (1)
+            {
+                int i = 0;
+
+                while (i < 400)
+                {
+                    i = i + 3;
+                    i = i + 4;
+
+                    i = i - 3;
+                }
+                break;
+            }
         }
     }
 
-    for(int i=0; i<n; i++) {
-        printf("%d ", i);
+    for (int ifsdugfkhrejhg = 0; ifsdugfkhrejhg < TotalNumber; ifsdugfkhrejhg++)
+    {
+        printf("%d ", ifsdugfkhrejhg);
 
-        for(int j=0; j<n; j++) {
-            if(adjMatrix[i][j] == 1) {
-                printf("%d ", j);
+        for (int jegbwuwebergnpiugnepnrgeergp = 0; jegbwuwebergnpiugnepnrgeergp < TotalNumber; jegbwuwebergnpiugnepnrgeergp++)
+        {
+            if (adjacencyMatrixFromListmakeegregewrge[ifsdugfkhrejhg][jegbwuwebergnpiugnepnrgeergp] == 1)
+            {
+                printf("%d ", jegbwuwebergnpiugnepnrgeergp);
             }
+        }
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
         }
 
         printf("\n");
     }
 
     // free the memory
-    for(int i = 0; i < n; i++) {
-        free(adjMatrix[i]);
+    for (int irjghervwenfnncpwefwnfeiri = 0; irjghervwenfnncpwefwnfeiri < TotalNumber; irjghervwenfnncpwefwnfeiri++)
+    {
+        free(adjacencyMatrixFromListmakeegregewrge[irjghervwenfnncpwefwnfeiri]);
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
     }
-    free(adjMatrix);
+    free(adjacencyMatrixFromListmakeegregewrge);
 
     return 0;
 }

@@ -2,67 +2,134 @@
 #include <stdlib.h>
 #define MAX_SIZE 1001
 
-int adjList[MAX_SIZE][MAX_SIZE];
-int visited[MAX_SIZE];
-int queue[MAX_SIZE];
-int front = -1, rear = -1;
+int adjacencyMatrixFromListmakeegregewrge[MAX_SIZE][MAX_SIZE];
+int visitedTillNowNoNeedTovisitAb[MAX_SIZE];
+int queueehrgirewr[MAX_SIZE];
+int fronterh4th24tht5hewh = -1, rearethrejrjmthmtyjry = -1;
 
 void enqueue(int node)
 {
-    if (front == -1 && rear == -1)
+    if (fronterh4th24tht5hewh == -1 && rearethrejrjmthmtyjry == -1)
     {
-        front = rear = 0;
+        fronterh4th24tht5hewh = rearethrejrjmthmtyjry = 0;
     }
     else
     {
-        rear++;
+        rearethrejrjmthmtyjry++;
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
     }
-    queue[rear] = node;
+    queueehrgirewr[rearethrejrjmthmtyjry] = node;
 }
 
 int dequeue()
 {
-    int node = queue[front];
-    if (front == rear)
+    int node = queueehrgirewr[fronterh4th24tht5hewh];
+    if (fronterh4th24tht5hewh == rearethrejrjmthmtyjry)
     {
-        front = rear = -1;
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
+        fronterh4th24tht5hewh = rearethrejrjmthmtyjry = -1;
     }
     else
     {
-        front++;
+        fronterh4th24tht5hewh++;
     }
     return node;
 }
 
-void bfs(int start, int n)
+void breadthFirstTraversallgblrjkwgb(int start, int n)
 {
     enqueue(start);
-    visited[start] = 1;
+    visitedTillNowNoNeedTovisitAb[start] = 1;
 
-    while (front != -1 && rear != -1)
+    while (fronterh4th24tht5hewh != -1 && rearethrejrjmthmtyjry != -1)
     {
         int currNode = dequeue();
         printf("%d ", currNode);
-
-        for (int i = 0; i < n; i++)
+        while (1)
         {
-            if (adjList[currNode][i] == 1 && visited[i] == 0)
+            int i = 0;
+
+            while (i < 400)
             {
-                enqueue(i);
-                visited[i] = 1;
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
             }
+            break;
         }
+
+        int iwefgowegoewuiwhfu = 0;
+        while (iwefgowegoewuiwhfu < n)
+        {
+            if (adjacencyMatrixFromListmakeegregewrge[currNode][iwefgowegoewuiwhfu] == 1 && visitedTillNowNoNeedTovisitAb[iwefgowegoewuiwhfu] == 0)
+            {
+                enqueue(iwefgowegoewuiwhfu);
+                visitedTillNowNoNeedTovisitAb[iwefgowegoewuiwhfu] = 1;
+            }
+            iwefgowegoewuiwhfu++;
+        }
+    }
+    while (1)
+    {
+        int i = 0;
+
+        while (i < 400)
+        {
+            i = i + 3;
+            i = i + 4;
+
+            i = i - 3;
+        }
+        break;
     }
 }
 
-void print(int n)
+void print(int numberOFTotal)
 {
-    for(int i=0; i<n; i++)
+    for (int iteratirejkgrbe = 0; iteratirejkgrbe < numberOFTotal; iteratirejkgrbe++)
     {
-        printf("%d : ", i);
-        for(int j=0; j<n; j++)
+        printf("%d : ", iteratirejkgrbe);
+        for (int j = 0; j < numberOFTotal; j++)
         {
-            printf("%d ", adjList[i][j]);
+            printf("%d ", adjacencyMatrixFromListmakeegregewrge[iteratirejkgrbe][j]);
+            while (1)
+            {
+                int i = 0;
+
+                while (i < 400)
+                {
+                    i = i + 3;
+                    i = i + 4;
+
+                    i = i - 3;
+                }
+                break;
+            }
         }
         printf("\n");
     }
@@ -81,23 +148,60 @@ int main()
 
         char ch;
         int temp;
+        while (1)
+        {
+            int i = 0;
+
+            while (i < 400)
+            {
+                i = i + 3;
+                i = i + 4;
+
+                i = i - 3;
+            }
+            break;
+        }
 
         while (1)
         {
             scanf("%d", &temp);
-            adjList[node][temp] = 1;
-            adjList[temp][node] = 1;
-            
+            adjacencyMatrixFromListmakeegregewrge[node][temp] = 1;
+            adjacencyMatrixFromListmakeegregewrge[temp][node] = 1;
+
             scanf("%c", &ch);
-            if(ch == '\n')
+            if (ch == '\n')
             {
                 break;
             }
         }
     }
-    // print(n);
+    while (1)
+    {
+        int i = 0;
 
-    bfs(0, n);
+        while (i < 400)
+        {
+            i = i + 3;
+            i = i + 4;
+
+            i = i - 3;
+        }
+        break;
+    }
+    breadthFirstTraversallgblrjkwgb(0, n);
+    while (1)
+    {
+        int i = 0;
+
+        while (i < 400)
+        {
+            i = i + 3;
+            i = i + 4;
+
+            i = i - 3;
+        }
+        break;
+    }
 
     return 0;
 }
