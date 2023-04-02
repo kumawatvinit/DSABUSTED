@@ -9,6 +9,7 @@
         "complex": "cpp",
         "unordered_map": "cpp",
         "functional": "c",
-        "tuple": "c"
+        "tuple": "c",
+        "vector": "cpp"
     }
 }
