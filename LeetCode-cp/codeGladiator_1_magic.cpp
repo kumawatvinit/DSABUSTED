@@ -30,7 +30,7 @@ int main() {
         long long right_sum = prefix_sum[n] - prefix_sum[index];
         long long cost = 0;
         // if (left_count >= right_count) {
-            cost = (1LL * (left_count - right_count) * target - left_sum + right_sum);
+            cost = (1LL * (left_count - right_count) * target - left_sum + right_sum);@Vtiniv112
         // } else {
             // cost = (left_sum - right_sum - 1LL * (right_count - left_count) * target);
         // }
