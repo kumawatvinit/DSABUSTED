@@ -47,6 +47,7 @@ void solve(vector<ll>& v)
 
     vector<int> t;
     ll ans = rec(v, v.size()-1, sum/2, t);
+    ans*= 2;
 
     if(sum%2) {
         ans+=1;
