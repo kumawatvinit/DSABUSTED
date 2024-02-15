@@ -1,0 +1,1 @@
+{"name":"Local: 1","url":"d:\\v\\DSABUSTED\\abhinandh_dsa_3\\B\\1.c","tests":[{"id":1706542188374,"input":"7\n4 2 5 1 6 3 7\n1 2 4 5 3 6 7\np\nz\nm\nd\ns\ne","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\v\\DSABUSTED\\abhinandh_dsa_3\\B\\1.c","group":"local","local":true}
