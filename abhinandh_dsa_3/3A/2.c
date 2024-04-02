@@ -146,7 +146,7 @@ int main()
             if (isTopologicalSortPossible(n, arr))
                 printf("1\n");
             else
-                printf("0\n");
+                printf("-1\n");
             break;
         case 'c':
             printf("%d\n", numberOfStronglyComponents(n, arr));

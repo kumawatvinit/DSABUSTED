@@ -71,14 +71,39 @@ int dfsComponentSize(struct Graph *G, int v, int visited[])
 void sizeOfComponents(struct Graph *G)
 {
     int visited[MAX_NODES] = {0};
+    // store size of each component in an array
+    int cnt = 0;
+    int sizes[MAX_NODES] = {0};
+
     for (int i = 1; i < G->V; ++i)
     {
         if (!visited[i])
         {
             int size = dfsComponentSize(G, i, visited);
-            printf("%d ", size);
+            // printf("%d ", size);
+            sizes[cnt++] = size;
         }
     }
+
+    // sort the sizes array
+    for (int i = 0; i < cnt; ++i)
+    {
+        for (int j = i + 1; j < cnt; ++j)
+        {
+            if (sizes[i] > sizes[j])
+            {
+                int temp = sizes[i];
+                sizes[i] = sizes[j];
+                sizes[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < cnt; ++i)
+    {
+        printf("%d ", sizes[i]);
+    }
+
     printf("\n");
 }
 
@@ -128,7 +153,8 @@ void noOfBridges(struct Graph *G)
         }
     }
 
-    printf("%d\n", ans);
+    if(ans == 0) printf("-1\n");
+    else printf("%d\n", ans);
 }
 
 void dfsArticulationPoints(struct Graph *G, int v, int visited[], int disc[], int low[], int *time, int parent, int ap[])

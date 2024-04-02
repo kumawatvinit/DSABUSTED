@@ -1,0 +1,1 @@
+{"name":"Local: 5","url":"d:\\v\\DSABUSTED\\anand\\pd_1\\5.c","tests":[{"id":1712083719797,"input":"5\n2 6 3 9 1","output":"1 2 3 6 9\n5"},{"id":1712083732250,"input":"4\n27 61 33 13","output":"13 27 33 61\n4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\v\\DSABUSTED\\anand\\pd_1\\5.c","group":"local","local":true}
