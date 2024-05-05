@@ -1,6 +1,20 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "two",
+            "request": "launch",
+            "mainClass": "thirteen.two",
+            "projectName": "DSABUSTED_e1354733"
+        },
+        {
+            "type": "java",
+            "name": "maximum",
+            "request": "launch",
+            "mainClass": "thirteen.maximum",
+            "projectName": "DSABUSTED_e1354733"
+        },
+        {
             "name": "C/C++: g++.exe build and debug active file",
             "type": "cppdbg",
             "request": "launch",
